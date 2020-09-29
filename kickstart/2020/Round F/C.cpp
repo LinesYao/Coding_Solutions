@@ -55,11 +55,11 @@ int dfs(int s, int xa, int ya, int xb, int yb, int step,
                 if(underCons[tx][ty] || painted[make_pair(tx, ty)]) continue;
                 ok = 1;
                 painted[make_pair(tx, ty)] = 2;
-                mmin = min(mmin, dfs(s, xa, ya, tx, ty, step+1, painted, is_A_end, 0));
+                mmin = min(mmin, dfs(s, xa, ya, tx, ty, step^1, painted, is_A_end, 0));
                 painted[make_pair(tx, ty)] = 0;
             }
             if(!ok) {
-                mmin = min(mmin, dfs(s, xa, ya, xb, yb, step+1, painted, is_A_end, 1));
+                mmin = min(mmin, dfs(s, xa, ya, xb, yb, step^1, painted, is_A_end, 1));
             }
         }
         return mmin;
